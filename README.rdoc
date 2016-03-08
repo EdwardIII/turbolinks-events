@@ -2,7 +2,17 @@
 
 In turbolinks 5 none of the events seem to let me remove a spinner from a page before it gets cached?
 
+I would expect the spinner to get removed before-cache as I'm trying to remove it on this event:
+
+    $(document).on 'turbolinks:before-cache', ->
+        $('body').remove('.spinner-wrap')
+
+But when I click back it's right there again. I can see the event was triggered. Maybe it
+doesn't get triggered when I think it's does?
+
 == How to repeat
 
 Click about, then click back, observe the spinner keeps spinning forever
+
+
 
